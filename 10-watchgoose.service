@@ -1,0 +1,13 @@
+[Unit]
+Description=watchgoose - restart this Pi before it freezes
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/watchgoose --service
+Restart=always
+RestartSec=10
+Nice=-5
+
+[Install]
+WantedBy=multi-user.target

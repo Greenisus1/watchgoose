@@ -1,0 +1,28 @@
+# watchgoose configuration (used by the systemd service and the fullscreen UI).
+# One key=value per line. Restart the service after changes:
+#   sudo systemctl restart watchgoose
+#
+# Reboot the Pi when a metric holds past its threshold for its whole window.
+# Set to false for watch-and-log-only:
+reboot_enabled=true
+#
+# Arm /dev/watchdog so even a HARD kernel freeze reboots the Pi.
+# Off by default. Enable only if you accept that a hard freeze reboots:
+watchdog_arm=false
+#
+# Safe thresholds (these are the built-in defaults):
+# interval=5            seconds between checks
+# load1_max=8.0         1-minute load average
+# load_window=300       sustained seconds before action
+# mem_avail_min_pct=5   MemAvailable percent
+# mem_window=120
+# swap_max_pct=90       swap used percent
+# swap_window=120
+# temp_max_c=80         SoC temperature
+# temp_window=60
+# boot_grace=300        never act in the first 5 min after boot
+# cooldown=1800         min seconds between watchgoose reboots
+# max_reboots_per_day=3
+#
+# Off switch for the whole service:
+#   sudo bash app-store.sh service-off    (or: sudo systemctl disable --now watchgoose)
